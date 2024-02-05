@@ -71,7 +71,7 @@ def main():
         print(f"GetProject() - Name: {getResp.name}")
 
         # delete project
-        if myDeleteId == None:
+        if myDeleteId is None:
             print("")
             print(
                 'This example requires a project who already exists who name is in the value "DELETE_PROJECT_ID".'

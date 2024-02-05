@@ -4,7 +4,9 @@
 
 import os
 from dotenv import load_dotenv
-import logging, verboselogs
+import logging
+
+import verboselogs
 from datetime import datetime, timedelta
 
 from deepgram import (
@@ -30,7 +32,7 @@ def main():
         deepgram = DeepgramClient()
 
         # STEP 2 Call the transcribe_file method on the prerecorded class
-        with open(TEXT_FILE, "r") as file:
+        with open(TEXT_FILE, 'r', encoding='utf-8') as file:
             buffer_data = file.read()
 
         payload: TextSource = {

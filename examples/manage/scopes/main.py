@@ -43,7 +43,7 @@ def main():
                     memberId = member.member_id
                 print(f"GetMembers() - ID: {member.member_id}, Email: {member.email}")
 
-        if memberId == None:
+        if memberId is None:
             print(
                 'This example requires a member who is already a member with email in the value of "MEMBER_BY_EMAIL".'
             )
