@@ -113,7 +113,7 @@ class LiveClient:
 
     def _listening(self) -> None:
         self.logger.debug("LiveClient._listening ENTER")
-
+    
         while True:
             try:
                 self.lock_exit.acquire()
@@ -123,16 +123,16 @@ class LiveClient:
                     self.logger.notice("_listening exiting gracefully")
                     self.logger.debug("LiveClient._listening LEAVE")
                     return
-
+    
                 message = self._socket.recv()
                 if len(message) == 0:
                     self.logger.info("message is empty")
                     continue
-
+    
                 data = json.loads(message)
                 response_type = data.get("type")
                 self.logger.verbose("response_type: %s", response_type)
-
+    
                 match response_type:
                     case LiveTranscriptionEvents.Transcript.value:
                         self.logger.debug(
@@ -209,7 +209,7 @@ class LiveClient:
                             response_type,
                             data,
                         )
-
+    
             except websockets.exceptions.ConnectionClosedOK as e:
                 if e.code == 1000:
                     self.logger.notice("_listening(1000) exiting gracefully")
@@ -228,7 +228,7 @@ class LiveClient:
                     self._emit(LiveTranscriptionEvents.Error, error)
                     self.logger.debug("LiveClient._listening LEAVE")
                     raise
-
+    
             except Exception as e:
                 error: ErrorResponse = {
                     "type": "Exception",
