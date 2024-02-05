@@ -2,7 +2,9 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-import logging, verboselogs
+import logging
+
+import verboselogs
 from typing import Dict, Optional
 from .errors import DeepgramApiKeyError
 import re
@@ -44,7 +46,7 @@ class DeepgramClientOptions:
         self.url = self._get_url(url)
 
         if options is None:
-            options = dict()
+            options = {}
         self.options = options
 
     def set_apikey(self, api_key: str):
@@ -130,7 +132,7 @@ class ClientOptionsFromEnv(DeepgramClientOptions):
         self.logger.notice(f"Logging level is set to {verbose}")
 
         if headers is None:
-            headers = dict()
+            headers = {}
             for x in range(0, 20):
                 header = os.getenv(f"DEEPGRAM_HEADER_{x}", None)
                 if header is not None:
@@ -145,7 +147,7 @@ class ClientOptionsFromEnv(DeepgramClientOptions):
                 headers = None
 
         if options is None:
-            options = dict()
+            options = {}
             for x in range(0, 20):
                 param = os.getenv(f"DEEPGRAM_PARAM_{x}", None)
                 if param is not None:
