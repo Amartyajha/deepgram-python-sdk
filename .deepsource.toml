@@ -1,0 +1,51 @@
+version = 1
+
+[[analyzers]]
+name = "javascript"
+
+  [analyzers.meta]
+  plugins = [
+    "react",
+    "angular",
+    "vue",
+    "ember",
+    "meteor",
+    "angularjs"
+  ]
+  environment = [
+    "jasmine",
+    "mocha",
+    "cypress",
+    "jquery",
+    "nodejs"
+  ]
+
+[[analyzers]]
+name = "ansible"
+
+[[analyzers]]
+name = "python"
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
+
+[[transformers]]
+name = "autopep8"
+
+[[transformers]]
+name = "black"
+
+[[transformers]]
+name = "ruff"
+
+[[transformers]]
+name = "yapf"
+
+[[transformers]]
+name = "isort"
+
+[[transformers]]
+name = "prettier"
+
+[[transformers]]
+name = "standardjs"
