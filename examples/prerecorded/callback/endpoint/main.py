@@ -1,5 +1,5 @@
-from http.server import HTTPServer, BaseHTTPRequestHandler
 import ssl
+from http.server import BaseHTTPRequestHandler, HTTPServer
 from io import BytesIO
 
 

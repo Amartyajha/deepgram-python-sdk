@@ -2,16 +2,17 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-import httpx
-import logging, verboselogs
 import json
+import logging
+
+import httpx
+import verboselogs
 
 from ...abstract_sync_client import AbstractSyncRestClient
+from ..enums import Sentiment
 from ..errors import DeepgramError, DeepgramTypeError
 from ..helpers import is_buffer_source, is_readstream_source, is_url_source
-from ..source import UrlSource, FileSource
-from ..enums import Sentiment
-
+from ..source import FileSource, UrlSource
 from .options import PrerecordedOptions
 from .response import AsyncPrerecordedResponse, PrerecordedResponse
 

@@ -2,14 +2,13 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-from .client import PreRecordedClient
-from .async_client import AsyncPreRecordedClient
-from .options import PrerecordedOptions
+from ....options import DeepgramClientOptions
 from ..enums import Sentiment
+from .async_client import AsyncPreRecordedClient
+from .client import PreRecordedClient
+from .options import PrerecordedOptions
 from .response import (
     AsyncPrerecordedResponse,
     PrerecordedResponse,
     SyncPrerecordedResponse,
 )
-
-from ....options import DeepgramClientOptions

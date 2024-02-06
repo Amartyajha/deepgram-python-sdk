@@ -2,8 +2,9 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-from typing import Union
 from io import BufferedReader
+from typing import Union
+
 from typing_extensions import TypedDict
 
 
@@ -17,6 +18,7 @@ class ReadStreamSource(TypedDict):
     Attributes:
         stream (BufferedReader): A BufferedReader object for reading binary data.
     """
+
     stream: BufferedReader
 
 
@@ -30,6 +32,7 @@ class UrlSource(TypedDict):
     Attributes:
         url (str): The URL pointing to the hosted file.
     """
+
     url: str
 
 
@@ -43,6 +46,7 @@ class BufferSource(TypedDict):
     Attributes:
         buffer (bytes): The binary data.
     """
+
     buffer: bytes
 
 

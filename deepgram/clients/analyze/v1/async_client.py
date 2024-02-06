@@ -2,18 +2,19 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-import httpx
-import logging, verboselogs
 import json
+import logging
+
+import httpx
+import verboselogs
 
 from ...abstract_async_client import AbstractAsyncRestClient
+from ..enums import Sentiment
 from ..errors import DeepgramError, DeepgramTypeError
 from ..helpers import is_buffer_source, is_readstream_source, is_url_source
-from ..source import UrlSource, TextSource
-from ..enums import Sentiment
-
+from ..source import TextSource, UrlSource
 from .options import AnalyzeOptions
-from .response import AsyncAnalyzeResponse, AnalyzeResponse
+from .response import AnalyzeResponse, AsyncAnalyzeResponse
 
 
 class AsyncAnalyzeClient(AbstractAsyncRestClient):

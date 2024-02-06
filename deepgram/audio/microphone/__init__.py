@@ -2,5 +2,5 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
+from .constants import CHANNELS, CHUNK, LOGGING, RATE
 from .microphone import Microphone
-from .constants import LOGGING, CHANNELS, RATE, CHUNK

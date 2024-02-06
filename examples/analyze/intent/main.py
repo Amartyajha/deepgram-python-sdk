@@ -2,17 +2,14 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
+import logging
 import os
-from dotenv import load_dotenv
-import logging, verboselogs
 from datetime import datetime, timedelta
 
-from deepgram import (
-    DeepgramClient,
-    DeepgramClientOptions,
-    AnalyzeOptions,
-    TextSource,
-)
+import verboselogs
+from dotenv import load_dotenv
+
+from deepgram import AnalyzeOptions, DeepgramClient, DeepgramClientOptions, TextSource
 
 load_dotenv()
 

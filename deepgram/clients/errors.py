@@ -10,6 +10,7 @@ class DeepgramError(Exception):
     Attributes:
         message (str): The error message describing the exception.
     """
+
     def __init__(self, message: str):
         super().__init__(message)
         self.name = "DeepgramError"
@@ -26,6 +27,7 @@ class DeepgramModuleError(Exception):
     Attributes:
         message (str): The error message describing the exception.
     """
+
     def __init__(self, message: str):
         super().__init__(message)
         self.name = "DeepgramModuleError"
@@ -40,6 +42,7 @@ class DeepgramApiError(Exception):
         status (str): The HTTP status associated with the API error.
         original_error (str - json): The original error that was raised.
     """
+
     def __init__(self, message: str, status: str, original_error=None):
         super().__init__(message)
         self.name = "DeepgramApiError"
@@ -59,6 +62,7 @@ class DeepgramUnknownApiError(Exception):
         message (str): The error message describing the exception.
         status (str): The HTTP status associated with the API error.
     """
+
     def __init__(self, message: str, status: str):
         super().__init__(message, status)
         self.name = "DeepgramUnknownApiError"

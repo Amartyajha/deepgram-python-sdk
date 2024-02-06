@@ -4,11 +4,13 @@
 
 import os
 import sys
+
 from dotenv import load_dotenv
 
 from deepgram import DeepgramClient, KeyOptions
 
 load_dotenv()
+
 
 def main():
     try:

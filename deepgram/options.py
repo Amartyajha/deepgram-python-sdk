@@ -2,11 +2,14 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-import logging, verboselogs
-from typing import Dict, Optional
-from .errors import DeepgramApiKeyError
-import re
+import logging
 import os
+import re
+from typing import Dict, Optional
+
+import verboselogs
+
+from .errors import DeepgramApiKeyError
 
 
 class DeepgramClientOptions:

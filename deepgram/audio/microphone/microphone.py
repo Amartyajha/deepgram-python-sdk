@@ -2,14 +2,17 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-import inspect
 import asyncio
+import inspect
+import logging
 import threading
 from array import array
-import logging, verboselogs
 
+import verboselogs
+
+from .constants import CHANNELS, CHUNK, LOGGING, RATE
 from .errors import DeepgramMicrophoneError
-from .constants import LOGGING, CHANNELS, RATE, CHUNK
+
 
 class Microphone:
     """
@@ -23,7 +26,7 @@ class Microphone:
         rate=RATE,
         chunk=CHUNK,
         channels=CHANNELS,
-        input_device_index=None
+        input_device_index=None,
     ):
         # dynamic import of pyaudio as not to force the requirements on the SDK (and users)
         import pyaudio
@@ -44,11 +47,13 @@ class Microphone:
 
         if inspect.iscoroutinefunction(push_callback):
             self.logger.verbose("async/await callback - wrapping")
-            #Run our own asyncio loop.
+            # Run our own asyncio loop.
             self.asyncio_thread = threading.Thread(target=self._start_asyncio_loop)
             self.asyncio_thread.start()
 
-            self.push_callback = lambda data: asyncio.run_coroutine_threadsafe(push_callback(data), self.asyncio_loop).result()
+            self.push_callback = lambda data: asyncio.run_coroutine_threadsafe(
+                push_callback(data), self.asyncio_loop
+            ).result()
         else:
             self.logger.verbose("regular threaded callback")
             self.push_callback = push_callback
@@ -99,7 +104,7 @@ class Microphone:
             input=True,
             frames_per_buffer=self.chunk,
             input_device_index=self.input_device_index,
-            stream_callback=self._callback
+            stream_callback=self._callback,
         )
 
         self.exit.clear()
@@ -113,6 +118,7 @@ class Microphone:
         The callback used to process data in callback mode.
         """
         import pyaudio
+
         self.logger.debug("Microphone._callback ENTER")
 
         if self.exit.is_set():
@@ -152,7 +158,7 @@ class Microphone:
 
         if self.asyncio_thread is not None:
             self.asyncio_loop.call_soon_threadsafe(self.asyncio_loop.stop)
-            self.asyncio_thread.join()  #Clean up.
+            self.asyncio_thread.join()  # Clean up.
             self.asyncio_thread = None
 
         self.logger.notice("stream/recv thread joined")

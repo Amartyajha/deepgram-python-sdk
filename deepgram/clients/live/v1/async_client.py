@@ -3,22 +3,23 @@
 # SPDX-License-Identifier: MIT
 import asyncio
 import json
+import logging
+
+import verboselogs
 import websockets
-import logging, verboselogs
 
 from ....options import DeepgramClientOptions
 from ..enums import LiveTranscriptionEvents
-from ..helpers import convert_to_websocket_url, append_query_params
 from ..errors import DeepgramError
-
+from ..helpers import append_query_params, convert_to_websocket_url
+from .options import LiveOptions
 from .response import (
+    ErrorResponse,
     LiveResultResponse,
     MetadataResponse,
     SpeechStartedResponse,
     UtteranceEndResponse,
-    ErrorResponse,
 )
-from .options import LiveOptions
 
 
 class AsyncLiveClient:

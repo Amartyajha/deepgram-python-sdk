@@ -2,7 +2,9 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-import logging, verboselogs
+import logging
+
+import verboselogs
 
 from ...abstract_async_client import AbstractAsyncRestClient
 
@@ -16,6 +18,7 @@ class AsyncOnPremClient(AbstractAsyncRestClient):
     Args:
         config (DeepgramClientOptions): all the options for the client.
     """
+
     def __init__(self, config):
         self.logger = logging.getLogger(__name__)
         self.logger.addHandler(logging.StreamHandler())

@@ -2,26 +2,25 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
+import logging
 from importlib import import_module
-import logging, verboselogs
+
+import verboselogs
 
 from ..options import DeepgramClientOptions
-from .errors import DeepgramModuleError
 
+# responses
 # live client
 # classes and input
 from .analyze import (
     AnalyzeClient,
-    AsyncAnalyzeClient,
     AnalyzeOptions,
-)
-
-# responses
-from .analyze import (
-    AsyncAnalyzeResponse,
     AnalyzeResponse,
+    AsyncAnalyzeClient,
+    AsyncAnalyzeResponse,
     SyncAnalyzeResponse,
 )
+from .errors import DeepgramModuleError
 
 
 class Read:
