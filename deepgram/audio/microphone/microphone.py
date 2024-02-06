@@ -28,6 +28,26 @@ class Microphone:
         channels=CHANNELS,
         input_device_index=None,
     ):
+        """Initializes the PyAudioStream object with the given parameters.
+        Parameters:
+            - push_callback (function): A function that will be called with the recorded audio data.
+            - verbose (bool): A flag indicating whether or not to enable verbose logging. Defaults to LOGGING.
+            - rate (int): The sampling rate of the audio. Defaults to RATE.
+            - chunk (int): The chunk size of the audio. Defaults to CHUNK.
+            - channels (int): The number of channels in the audio. Defaults to CHANNELS.
+            - input_device_index (int): The index of the input device to use. Defaults to None.
+        Returns:
+            - None: This function does not return anything.
+        Processing Logic:
+            - Imports the pyaudio library.
+            - Initializes the logger.
+            - Creates an event for exiting the thread.
+            - Initializes the pyaudio object.
+            - Sets the chunk, rate, format, channels, and input_device_index attributes.
+            - Initializes the asyncio loop and thread.
+            - Wraps the push_callback function in an asyncio coroutine if it is a coroutine function.
+            - Sets the stream attribute to None."""
+        
         # dynamic import of pyaudio as not to force the requirements on the SDK (and users)
         import pyaudio
 
@@ -61,6 +81,15 @@ class Microphone:
         self.stream = None
 
     def _start_asyncio_loop(self):
+        """Starts a new asyncio event loop and runs it forever.
+        Parameters:
+            - self (object): The object itself.
+        Returns:
+            - None: Does not return anything.
+        Processing Logic:
+            - Create new asyncio event loop.
+            - Run event loop forever."""
+        
         self.asyncio_loop = asyncio.new_event_loop()
         self.asyncio_loop.run_forever()
 
