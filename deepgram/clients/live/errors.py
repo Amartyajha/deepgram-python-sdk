@@ -10,6 +10,7 @@ class DeepgramError(Exception):
     Attributes:
         message (str): The error message describing the exception.
     """
+
     def __init__(self, message: str):
         super().__init__(message)
         self.name = "DeepgramError"

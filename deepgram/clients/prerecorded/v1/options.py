@@ -2,10 +2,12 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
+import logging
 from dataclasses import dataclass
+from typing import List, Optional, TypedDict, Union
+
+import verboselogs
 from dataclasses_json import dataclass_json
-from typing import Union, List, TypedDict, Optional
-import logging, verboselogs
 
 
 @dataclass_json

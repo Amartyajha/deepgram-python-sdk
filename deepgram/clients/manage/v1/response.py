@@ -3,10 +3,10 @@
 # SPDX-License-Identifier: MIT
 
 from dataclasses import dataclass
-from dataclasses_json import dataclass_json
 from datetime import datetime
-from typing import TypedDict, List, Optional
+from typing import List, Optional, TypedDict
 
+from dataclasses_json import dataclass_json
 
 # Result Message
 
@@ -188,6 +188,7 @@ class Config:
         _dict = self.to_dict()
         return _dict[key]
 
+
 @dataclass_json
 @dataclass
 class Details:
@@ -202,7 +203,6 @@ class Details:
     features: Optional[List[str]] = None
     config: Optional[Config] = None
     tier: Optional[str] = ""
-
 
     def __getitem__(self, key):
         _dict = self.to_dict()
@@ -228,6 +228,7 @@ class Callback:
         _dict = self.to_dict()
         return _dict[key]
 
+
 @dataclass_json
 @dataclass
 class TokenDetail:
@@ -239,7 +240,8 @@ class TokenDetail:
     def __getitem__(self, key):
         _dict = self.to_dict()
         return _dict[key]
-    
+
+
 @dataclass_json
 @dataclass
 class Response:
@@ -254,7 +256,8 @@ class Response:
             _dict["details"] = Details.from_dict(_dict["details"])
         if _dict["token_details"] is not None:
             _dict["token_details"] = [
-                TokenDetail.from_dict(token_details) for _, token_details in _dict["token_details"].items()
+                TokenDetail.from_dict(token_details)
+                for _, token_details in _dict["token_details"].items()
             ]
         return _dict[key]
 
@@ -296,6 +299,7 @@ class UsageRequestsResponse:
             ]
         return _dict[key]
 
+
 class Tokens:
     tokens_in: Optional[int] = 0
     out: Optional[int] = 0
@@ -303,6 +307,7 @@ class Tokens:
     def __getitem__(self, key):
         _dict = self.to_dict()
         return _dict[key]
+
 
 @dataclass_json
 @dataclass

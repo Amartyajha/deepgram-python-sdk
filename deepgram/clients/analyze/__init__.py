@@ -2,17 +2,20 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-from .client import AnalyzeClient
-from .client import AsyncAnalyzeClient
-from .client import AnalyzeOptions
-from .client import Sentiment
+from ...options import DeepgramClientOptions
+from .client import (
+    AnalyzeClient,
+    AnalyzeOptions,
+    AnalyzeResponse,
+    AsyncAnalyzeClient,
+    AsyncAnalyzeResponse,
+    Sentiment,
+    SyncAnalyzeResponse,
+)
 from .source import (
     AnalyzeSource,
+    AnalyzeStreamSource,
+    BufferSource,
     TextSource,
     UrlSource,
-    BufferSource,
-    AnalyzeStreamSource,
 )
-from .client import AsyncAnalyzeResponse, AnalyzeResponse, SyncAnalyzeResponse
-
-from ...options import DeepgramClientOptions

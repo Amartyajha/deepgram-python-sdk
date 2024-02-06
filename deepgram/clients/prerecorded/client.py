@@ -2,16 +2,14 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-from .v1.client import PreRecordedClient as PreRecordedClientLatest
-from .v1.async_client import AsyncPreRecordedClient as AsyncPreRecordedClientLatest
-from .v1.options import PrerecordedOptions as PrerecordedOptionsLatest
-from .source import PrerecordedSource, FileSource, UrlSource
-from .v1.response import (
-    AsyncPrerecordedResponse as AsyncPrerecordedResponseLatest,
-    PrerecordedResponse as PrerecordedResponseLatest,
-    SyncPrerecordedResponse as SyncPrerecordedResponseLatest,
-)
 from .enums import Sentiment
+from .source import FileSource, PrerecordedSource, UrlSource
+from .v1.async_client import AsyncPreRecordedClient as AsyncPreRecordedClientLatest
+from .v1.client import PreRecordedClient as PreRecordedClientLatest
+from .v1.options import PrerecordedOptions as PrerecordedOptionsLatest
+from .v1.response import AsyncPrerecordedResponse as AsyncPrerecordedResponseLatest
+from .v1.response import PrerecordedResponse as PrerecordedResponseLatest
+from .v1.response import SyncPrerecordedResponse as SyncPrerecordedResponseLatest
 
 """
 The client.py points to the current supported version in the SDK.

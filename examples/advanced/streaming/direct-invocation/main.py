@@ -2,16 +2,18 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-import httpx
-from dotenv import load_dotenv
-import logging, verboselogs
+import logging
 import threading
 
+import httpx
+import verboselogs
+from dotenv import load_dotenv
+
 from deepgram import (
-    LiveClient,
     ClientOptionsFromEnv,
-    LiveTranscriptionEvents,
+    LiveClient,
     LiveOptions,
+    LiveTranscriptionEvents,
 )
 
 load_dotenv()

@@ -4,6 +4,7 @@
 
 import asyncio
 import os
+
 from dotenv import load_dotenv
 
 from deepgram import DeepgramClient, PrerecordedOptions

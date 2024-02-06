@@ -2,12 +2,13 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-import httpx
 import json
 
-from .helpers import append_query_params
+import httpx
+
 from ..options import DeepgramClientOptions
-from .errors import DeepgramError, DeepgramApiError, DeepgramUnknownApiError
+from .errors import DeepgramApiError, DeepgramError, DeepgramUnknownApiError
+from .helpers import append_query_params
 
 
 class AbstractSyncRestClient:
@@ -41,7 +42,7 @@ class AbstractSyncRestClient:
             addons=addons,
             headers=self.config.headers,
             timeout=timeout,
-            **kwargs
+            **kwargs,
         )
 
     def post(self, url: str, options=None, addons=None, timeout=None, **kwargs):
@@ -52,7 +53,7 @@ class AbstractSyncRestClient:
             addons=addons,
             headers=self.config.headers,
             timeout=timeout,
-            **kwargs
+            **kwargs,
         )
 
     def put(self, url: str, options=None, addons=None, timeout=None, **kwargs):
@@ -63,7 +64,7 @@ class AbstractSyncRestClient:
             addons=addons,
             headers=self.config.headers,
             timeout=timeout,
-            **kwargs
+            **kwargs,
         )
 
     def patch(self, url: str, options=None, addons=None, timeout=None, **kwargs):
@@ -74,7 +75,7 @@ class AbstractSyncRestClient:
             addons=addons,
             headers=self.config.headers,
             timeout=timeout,
-            **kwargs
+            **kwargs,
         )
 
     def delete(self, url: str, options=None, addons=None, timeout=None, **kwargs):
@@ -85,7 +86,7 @@ class AbstractSyncRestClient:
             addons=addons,
             headers=self.config.headers,
             timeout=timeout,
-            **kwargs
+            **kwargs,
         )
 
     def _handle_request(self, method, url, params, addons, headers, timeout, **kwargs):

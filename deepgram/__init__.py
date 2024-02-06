@@ -5,102 +5,81 @@
 # version
 __version__ = "0.0.0"
 
-# entry point for the deepgram python sdk
-from .client import Deepgram, DeepgramClient
-from .options import DeepgramClientOptions, ClientOptionsFromEnv
-import logging, verboselogs
+import logging
 
-# listen client
-from .client import Listen, Read
-
-# live
-from .client import LiveTranscriptionEvents
-from .client import LiveClient, AsyncLiveClient
-from .client import LiveOptions
-from .client import (
-    LiveResultResponse,
-    MetadataResponse,
-    SpeechStartedResponse,
-    UtteranceEndResponse,
-    ErrorResponse,
-)
-
-# prerecorded
-from .client import PreRecordedClient, AsyncPreRecordedClient
-from .client import (
-    PrerecordedSource,
-    FileSource,
-    UrlSource,
-    BufferSource,
-    ReadStreamSource,
-    PrerecordedOptions,
-    Sentiment,
-)
-from .client import (
-    AsyncPrerecordedResponse,
-    PrerecordedResponse,
-    SyncPrerecordedResponse,
-)
-
-# read
-from .client import AnalyzeClient, AsyncAnalyzeClient
-from .client import (
-    AnalyzeSource,
-    TextSource,
-    UrlSource,
-    BufferSource,
-    AnalyzeStreamSource,
-    AnalyzeOptions,
-    Sentiment,
-)
-from .client import (
-    AsyncAnalyzeResponse,
-    AnalyzeResponse,
-    SyncAnalyzeResponse,
-)
-
-# manage
-from .client import ManageClient, AsyncManageClient
-from .client import (
-    ProjectOptions,
-    KeyOptions,
-    ScopeOptions,
-    InviteOptions,
-    UsageRequestOptions,
-    UsageSummaryOptions,
-    UsageFieldsOptions,
-)
-
-# manage client responses
-from .client import (
-    Message,
-    Project,
-    ProjectsResponse,
-    MembersResponse,
-    Key,
-    KeyResponse,
-    KeysResponse,
-    ScopesResponse,
-    InvitesResponse,
-    UsageRequest,
-    UsageRequestsResponse,
-    UsageSummaryResponse,
-    UsageFieldsResponse,
-    Balance,
-    BalancesResponse,
-)
-
-# onprem
-from .client import (
-    OnPremClient,
-    AsyncOnPremClient,
-)
+import verboselogs
 
 # utilities
-from .audio import Microphone
-from .audio import (
-    LOGGING,
-    CHANNELS,
-    RATE,
-    CHUNK,
+from .audio import CHANNELS, CHUNK, LOGGING, RATE, Microphone
+
+# onprem
+# manage client responses
+# manage
+# read
+# prerecorded
+# live
+# listen client
+# entry point for the deepgram python sdk
+from .client import (
+    AnalyzeClient,
+    AnalyzeOptions,
+    AnalyzeResponse,
+    AnalyzeSource,
+    AnalyzeStreamSource,
+    AsyncAnalyzeClient,
+    AsyncAnalyzeResponse,
+    AsyncLiveClient,
+    AsyncManageClient,
+    AsyncOnPremClient,
+    AsyncPreRecordedClient,
+    AsyncPrerecordedResponse,
+    Balance,
+    BalancesResponse,
+    BufferSource,
+    Deepgram,
+    DeepgramClient,
+    ErrorResponse,
+    FileSource,
+    InviteOptions,
+    InvitesResponse,
+    Key,
+    KeyOptions,
+    KeyResponse,
+    KeysResponse,
+    Listen,
+    LiveClient,
+    LiveOptions,
+    LiveResultResponse,
+    LiveTranscriptionEvents,
+    ManageClient,
+    MembersResponse,
+    Message,
+    MetadataResponse,
+    OnPremClient,
+    PreRecordedClient,
+    PrerecordedOptions,
+    PrerecordedResponse,
+    PrerecordedSource,
+    Project,
+    ProjectOptions,
+    ProjectsResponse,
+    Read,
+    ReadStreamSource,
+    ScopeOptions,
+    ScopesResponse,
+    Sentiment,
+    SpeechStartedResponse,
+    SyncAnalyzeResponse,
+    SyncPrerecordedResponse,
+    TextSource,
+    UrlSource,
+    UsageFieldsOptions,
+    UsageFieldsResponse,
+    UsageRequest,
+    UsageRequestOptions,
+    UsageRequestsResponse,
+    UsageSummaryOptions,
+    UsageSummaryResponse,
+    UtteranceEndResponse,
 )
+from .options import ClientOptionsFromEnv, DeepgramClientOptions

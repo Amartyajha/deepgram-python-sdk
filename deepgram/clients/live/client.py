@@ -2,17 +2,15 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-from .v1.client import LiveClient as LiveClientLatest
-from .v1.async_client import AsyncLiveClient as AsyncLiveClientLatest
-from .v1.options import LiveOptions as LiveOptionsLatest
 from .enums import LiveTranscriptionEvents
-from .v1.response import (
-    LiveResultResponse as LiveResultResponseLatest,
-    MetadataResponse as MetadataResponseLatest,
-    SpeechStartedResponse as SpeechStartedResponseLatest,
-    UtteranceEndResponse as UtteranceEndResponseLatest,
-    ErrorResponse as ErrorResponseLatest,
-)
+from .v1.async_client import AsyncLiveClient as AsyncLiveClientLatest
+from .v1.client import LiveClient as LiveClientLatest
+from .v1.options import LiveOptions as LiveOptionsLatest
+from .v1.response import ErrorResponse as ErrorResponseLatest
+from .v1.response import LiveResultResponse as LiveResultResponseLatest
+from .v1.response import MetadataResponse as MetadataResponseLatest
+from .v1.response import SpeechStartedResponse as SpeechStartedResponseLatest
+from .v1.response import UtteranceEndResponse as UtteranceEndResponseLatest
 
 """
 The vX/client.py points to the current supported version in the SDK.

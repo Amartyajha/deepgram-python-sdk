@@ -10,6 +10,7 @@ class DeepgramApiKeyError(Exception):
     Attributes:
         message (str): The error message describing the exception.
     """
+
     def __init__(self, message: str):
         super().__init__(message)
         self.name = "DeepgramApiKeyError"
@@ -22,6 +23,7 @@ class DeepgramModuleError(Exception):
     Attributes:
         message (str): The error message describing the exception.
     """
+
     def __init__(self, message: str):
         super().__init__(message)
         self.name = "DeepgramModuleError"

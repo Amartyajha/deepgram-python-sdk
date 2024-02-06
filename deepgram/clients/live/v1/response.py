@@ -3,9 +3,10 @@
 # SPDX-License-Identifier: MIT
 
 from dataclasses import dataclass
-from dataclasses_json import dataclass_json
 from datetime import datetime
-from typing import List, Optional, Dict
+from typing import Dict, List, Optional
+
+from dataclasses_json import dataclass_json
 
 # Result Message
 

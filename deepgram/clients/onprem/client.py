@@ -2,8 +2,8 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-from .v1.client import OnPremClient as OnPremClientLatest
 from .v1.async_client import AsyncOnPremClient as AsyncOnPremClientLatest
+from .v1.client import OnPremClient as OnPremClientLatest
 
 """
 The client.py points to the current supported version in the SDK.
@@ -15,6 +15,7 @@ class OnPremClient(OnPremClientLatest):
     """
     Please see OnPremClientLatest for details
     """
+
     def __init__(self, config):
         super().__init__(config)
 
@@ -23,5 +24,6 @@ class AsyncOnPremClient(AsyncOnPremClientLatest):
     """
     Please see AsyncOnPremClientLatest for details
     """
+
     def __init__(self, config):
         super().__init__(config)

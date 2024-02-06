@@ -3,8 +3,10 @@
 # SPDX-License-Identifier: MIT
 
 from dataclasses import dataclass, field
+from typing import Dict, List, Optional, TypedDict
+
 from dataclasses_json import config, dataclass_json
-from typing import List, Optional, TypedDict, Dict
+
 from ..enums import Sentiment
 
 # Async Prerecorded Response Types:

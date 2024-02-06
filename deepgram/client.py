@@ -2,105 +2,86 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-from typing import Optional
-from importlib import import_module
-import logging, verboselogs
+import logging
 import os
+from importlib import import_module
+from typing import Optional
 
-# listen client
-from .clients import Listen, Read
-
-# live
-from .clients import LiveClient, AsyncLiveClient
-from .clients import (
-    LiveOptions,
-    LiveTranscriptionEvents,
-)
-
-# live client responses
-from .clients import (
-    LiveResultResponse,
-    MetadataResponse,
-    SpeechStartedResponse,
-    UtteranceEndResponse,
-    ErrorResponse,
-)
-
-# prerecorded
-from .clients import PreRecordedClient, AsyncPreRecordedClient
-from .clients import (
-    PrerecordedSource,
-    FileSource,
-    UrlSource,
-    BufferSource,
-    ReadStreamSource,
-    PrerecordedOptions,
-    Sentiment,
-)
-
-# prerecorded client responses
-from .clients import (
-    AsyncPrerecordedResponse,
-    PrerecordedResponse,
-    SyncPrerecordedResponse,
-)
-
-# analyze
-from .clients import AnalyzeClient, AsyncAnalyzeClient
-from .clients import (
-    AnalyzeSource,
-    TextSource,
-    UrlSource,
-    BufferSource,
-    AnalyzeStreamSource,
-    AnalyzeOptions,
-    Sentiment,
-)
-
-# read client responses
-from .clients import (
-    AsyncAnalyzeResponse,
-    AnalyzeResponse,
-    SyncAnalyzeResponse,
-)
-
-# manage client classes/input
-from .clients import ManageClient, AsyncManageClient
-from .clients import (
-    ProjectOptions,
-    KeyOptions,
-    ScopeOptions,
-    InviteOptions,
-    UsageRequestOptions,
-    UsageSummaryOptions,
-    UsageFieldsOptions,
-)
+import verboselogs
 
 # manage client responses
+# manage client classes/input
+# read client responses
+# analyze
+# prerecorded client responses
+# prerecorded
+# live client responses
+# live
+# listen client
 from .clients import (
-    Message,
-    Project,
-    ProjectsResponse,
-    MembersResponse,
-    Key,
-    KeyResponse,
-    KeysResponse,
-    ScopesResponse,
-    InvitesResponse,
-    UsageRequest,
-    UsageRequestsResponse,
-    UsageSummaryResponse,
-    UsageFieldsResponse,
+    AnalyzeClient,
+    AnalyzeOptions,
+    AnalyzeResponse,
+    AnalyzeSource,
+    AnalyzeStreamSource,
+    AsyncAnalyzeClient,
+    AsyncAnalyzeResponse,
+    AsyncLiveClient,
+    AsyncManageClient,
+    AsyncPreRecordedClient,
+    AsyncPrerecordedResponse,
     Balance,
     BalancesResponse,
+    BufferSource,
+    ErrorResponse,
+    FileSource,
+    InviteOptions,
+    InvitesResponse,
+    Key,
+    KeyOptions,
+    KeyResponse,
+    KeysResponse,
+    Listen,
+    LiveClient,
+    LiveOptions,
+    LiveResultResponse,
+    LiveTranscriptionEvents,
+    ManageClient,
+    MembersResponse,
+    Message,
+    MetadataResponse,
+    PreRecordedClient,
+    PrerecordedOptions,
+    PrerecordedResponse,
+    PrerecordedSource,
+    Project,
+    ProjectOptions,
+    ProjectsResponse,
+    Read,
+    ReadStreamSource,
+    ScopeOptions,
+    ScopesResponse,
+    Sentiment,
+    SpeechStartedResponse,
+    SyncAnalyzeResponse,
+    SyncPrerecordedResponse,
+    TextSource,
+    UrlSource,
+    UsageFieldsOptions,
+    UsageFieldsResponse,
+    UsageRequest,
+    UsageRequestOptions,
+    UsageRequestsResponse,
+    UsageSummaryOptions,
+    UsageSummaryResponse,
+    UtteranceEndResponse,
 )
 
 # on-prem
 from .clients.onprem.client import OnPremClient
 from .clients.onprem.v1.async_client import AsyncOnPremClient
-
-from .options import DeepgramClientOptions, ClientOptionsFromEnv
 from .errors import DeepgramApiKeyError, DeepgramModuleError
+from .options import ClientOptionsFromEnv, DeepgramClientOptions
 
 
 class Deepgram:

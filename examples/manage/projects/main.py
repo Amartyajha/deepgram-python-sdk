@@ -4,6 +4,7 @@
 
 import os
 import sys
+
 from dotenv import load_dotenv
 
 from deepgram import DeepgramClient, ProjectOptions
@@ -12,6 +13,7 @@ load_dotenv()
 
 # environment variables
 DELETE_PROJECT_BY_NAME = os.getenv("DG_DELETE_PROJECT_BY_NAME")
+
 
 def main():
     try:

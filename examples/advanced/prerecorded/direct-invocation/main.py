@@ -2,12 +2,14 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
+import logging
 import os
-from dotenv import load_dotenv
-import logging, verboselogs
 import traceback
 
-from deepgram import ClientOptionsFromEnv, PrerecordedOptions, PreRecordedClient
+import verboselogs
+from dotenv import load_dotenv
+
+from deepgram import ClientOptionsFromEnv, PreRecordedClient, PrerecordedOptions
 
 load_dotenv()
 

@@ -7,6 +7,7 @@ This example shows how to use the [Callback](https://developers.deepgram.com/doc
 ## Configuration
 
 This example consists of two components:
+
 - `endpoint`: which is an example of what a callback endpoint would look like. Reminder: this requires running with a public-facing IP address
 - `callback`: which is just a Deepgram client posts a PreRecorded transcription request using a local audio file preamble.wav (or using an audio file at a hosted URL, like [https://static.deepgram.com/examples/Bueller-Life-moves-pretty-fast.wav](https://static.deepgram.com/examples/Bueller-Life-moves-pretty-fast.wav).
 

@@ -2,9 +2,10 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-from setuptools import setup, find_packages
 import os.path
 import sys
+
+from setuptools import find_packages, setup
 
 if sys.version_info < (3, 10):
     sys.exit("Sorry, Python < 3.10 is not supported")

@@ -4,6 +4,7 @@
 
 import os
 import sys
+
 from dotenv import load_dotenv
 
 from deepgram import DeepgramClient, ScopeOptions
@@ -12,6 +13,7 @@ load_dotenv()
 
 # environment variables
 MEMBER_BY_EMAIL = "enter-your-email@gmail.com"
+
 
 def main():
     try:

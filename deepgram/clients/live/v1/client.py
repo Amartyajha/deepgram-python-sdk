@@ -2,25 +2,26 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 import json
-from websockets.sync.client import connect
-import websockets
+import logging
 import threading
 import time
-import logging, verboselogs
+
+import verboselogs
+import websockets
+from websockets.sync.client import connect
 
 from ....options import DeepgramClientOptions
 from ..enums import LiveTranscriptionEvents
-from ..helpers import convert_to_websocket_url, append_query_params
 from ..errors import DeepgramError, DeepgramWebsocketError
-
+from ..helpers import append_query_params, convert_to_websocket_url
+from .options import LiveOptions
 from .response import (
+    ErrorResponse,
     LiveResultResponse,
     MetadataResponse,
     SpeechStartedResponse,
     UtteranceEndResponse,
-    ErrorResponse,
 )
-from .options import LiveOptions
 
 PING_INTERVAL = 5
 

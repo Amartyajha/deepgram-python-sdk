@@ -2,16 +2,14 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-from .v1.client import AnalyzeClient as AnalyzeClientLatest
-from .v1.async_client import AsyncAnalyzeClient as AsyncAnalyzeClientLatest
-from .v1.options import AnalyzeOptions as AnalyzeOptionsLatest
-from .source import AnalyzeSource, TextSource, UrlSource
-from .v1.response import (
-    SyncAnalyzeResponse as SyncAnalyzeResponseLatest,
-    AnalyzeResponse as AnalyzeResponseLatest,
-    AsyncAnalyzeResponse as AsyncAnalyzeResponseLatest,
-)
 from .enums import Sentiment
+from .source import AnalyzeSource, TextSource, UrlSource
+from .v1.async_client import AsyncAnalyzeClient as AsyncAnalyzeClientLatest
+from .v1.client import AnalyzeClient as AnalyzeClientLatest
+from .v1.options import AnalyzeOptions as AnalyzeOptionsLatest
+from .v1.response import AnalyzeResponse as AnalyzeResponseLatest
+from .v1.response import AsyncAnalyzeResponse as AsyncAnalyzeResponseLatest
+from .v1.response import SyncAnalyzeResponse as SyncAnalyzeResponseLatest
 
 """
 The client.py points to the current supported version in the SDK.

@@ -2,7 +2,9 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
-import logging, verboselogs
+import logging
+
+import verboselogs
 
 """
 constants for microphone

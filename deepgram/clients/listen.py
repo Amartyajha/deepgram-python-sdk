@@ -2,43 +2,39 @@
 # Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
+import logging
 from importlib import import_module
-import logging, verboselogs
+
+import verboselogs
 
 from ..options import DeepgramClientOptions
 from .errors import DeepgramModuleError
 
-# live client
-# classes and input
-from .prerecorded import (
-    PreRecordedClient,
-    AsyncPreRecordedClient,
-    PrerecordedOptions,
-)
-
 # responses
-from .prerecorded import (
-    AsyncPrerecordedResponse,
-    PrerecordedResponse,
-    SyncPrerecordedResponse,
-)
-
 # live client
 # classes and input
 from .live import (
-    LiveClient,
     AsyncLiveClient,
+    ErrorResponse,
+    LiveClient,
     LiveOptions,
-    LiveTranscriptionEvents,
-)
-
-# responses
-from .live import (
     LiveResultResponse,
+    LiveTranscriptionEvents,
     MetadataResponse,
     SpeechStartedResponse,
     UtteranceEndResponse,
-    ErrorResponse,
+)
+
+# responses
+# live client
+# classes and input
+from .prerecorded import (
+    AsyncPreRecordedClient,
+    AsyncPrerecordedResponse,
+    PreRecordedClient,
+    PrerecordedOptions,
+    PrerecordedResponse,
+    SyncPrerecordedResponse,
 )
 
 
