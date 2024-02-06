@@ -86,6 +86,19 @@ from .options import ClientOptionsFromEnv, DeepgramClientOptions
 
 class Deepgram:
     def __init__(self, *anything):
+        """Function:
+        def __init__(self, *anything):
+            Instantiates a Deepgram object.
+            Parameters:
+                - *anything (tuple): Tuple of arguments that will be passed to the Exception object.
+            Returns:
+                - None: This function does not return anything.
+            Processing Logic:
+                - Raises an Exception object with a fatal error message.
+                - The error message explains that the Deepgram object is no longer a class in version 3 of the SDK.
+                - Provides instructions on how to fix the issue.
+                - Lists important considerations for updating to version 3 of the SDK."""
+        
         raise Exception(
             """
             FATAL ERROR:
@@ -135,6 +148,18 @@ class DeepgramClient:
         api_key: str = "",
         config: Optional[DeepgramClientOptions] = None,
     ):
+        """"Initializes a DeepgramClient object with an optional API key and configuration options. If no API key is provided, the function will attempt to retrieve it from the config object or the DEEPGRAM_API_KEY environment variable. If no API key is found, a warning will be logged. The function also sets the API key and configuration options for the DeepgramClient object.
+        Parameters:
+            - api_key (str): Optional API key for DeepgramClient object.
+            - config (DeepgramClientOptions): Optional configuration options for DeepgramClient object.
+        Returns:
+            - DeepgramClient: A DeepgramClient object with the specified API key and configuration options.
+        Processing Logic:
+            - Sets API key from config object or environment variable if not provided.
+            - Sets API key and configuration options for DeepgramClient object.
+            - Logs a warning if no API key is found.
+            - Maximum of 4 bullets used.""""
+        
         verboselogs.install()
         self.logger = logging.getLogger(__name__)
         self.logger.addHandler(logging.StreamHandler())
@@ -157,26 +182,88 @@ class DeepgramClient:
 
     @property
     def listen(self):
+        """Listens to a specified configuration.
+        Parameters:
+            - config (str): The configuration to listen to.
+        Returns:
+            - Listen: A Listen object.
+        Processing Logic:
+            - Creates a Listen object.
+            - Returns the Listen object."""
+        
         return Listen(self.config)
 
     @property
     def read(self):
+        """Reads the configuration file and returns the configuration object.
+        Parameters:
+            - config (dict): Dictionary containing configuration data.
+        Returns:
+            - config (dict): Dictionary containing configuration data.
+        Processing Logic:
+            - Read configuration file.
+            - Convert configuration file to dictionary.
+            - Return configuration dictionary."""
+        
         return Read(self.config)
 
     @property
     def manage(self):
+        """"Returns the version of the configuration management tool being used.
+        Parameters:
+            - config (str): The name of the configuration management tool.
+            - manage (str): The specific function being called.
+        Returns:
+            - Version (str): The version of the configuration management tool being used.
+        Processing Logic:
+            - Gets the version of the specified configuration management tool.
+            - Uses the Version function from the self object.
+            - Returns the version as a string.
+            - Does not modify any input parameters.""""
+        
         return self.Version(self.config, "manage")
 
     @property
     def asyncmanage(self):
+        """Returns the version of the config file used for async management.
+        Parameters:
+            - config (str): The name of the config file.
+        Returns:
+            - str: The version of the config file used for async management.
+        Processing Logic:
+            - Get the version of the config file.
+            - Return the version.
+            - Used for async management."""
+        
         return self.Version(self.config, "asyncmanage")
 
     @property
     def onprem(self):
+        """"Returns the version of the on-premise software based on the provided configuration.
+        Parameters:
+            - config (dict): A dictionary containing the configuration details.
+            - "onprem" (str): A string indicating the type of software.
+        Returns:
+            - version (str): A string representing the version of the on-premise software.
+        Processing Logic:
+            - Uses the Version() method to retrieve the version.
+            - Based on the provided configuration.
+            - Returns the version as a string.""""
+        
         return self.Version(self.config, "onprem")
 
     @property
     def asynconprem(self):
+        """Returns the version of the asynchronous connection premium.
+        Parameters:
+            - self (object): The object containing the asynchronous connection premium.
+        Returns:
+            - version (str): The version of the asynchronous connection premium.
+        Processing Logic:
+            - Get the version from the config file.
+            - Use the Version method to retrieve the version.
+            - Return the version as a string."""
+        
         return self.Version(self.config, "asynconprem")
 
     # INTERNAL CLASSES
